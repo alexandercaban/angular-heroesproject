@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
-import { HeroesService } from  '../../servicios/heroes.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HeroesService } from '../../servicios/heroes.service';
 
 
 @Component({
@@ -8,17 +8,14 @@ import { HeroesService } from  '../../servicios/heroes.service';
   templateUrl: './hereo.component.html',
   styles: []
 })
-export class HereoComponent implements OnInit {
+export class HereoComponent {
 
-  heroe:any = {}
+  heroe: any = {};
 
-  constructor( private activatedRoute: ActivatedRoute,private _heroesService:HeroesService) {
-    this.activatedRoute.params.subscribe ( params =>{
-        this.heroe = this._heroesService.getHeroe(params['id']);
-    });
-   }
-
-  ngOnInit() {
+  constructor( private activatedRoute: ActivatedRoute, private _heroesService: HeroesService) {
+    this.activatedRoute.params.subscribe ( params => {
+      this.heroe = this._heroesService.getHeroe(params.id);
+  });
   }
 
 }
